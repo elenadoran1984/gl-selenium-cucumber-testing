@@ -1,22 +1,21 @@
-package com.globallogic.testing.e2d.stepdefs.globallogicweb.helper;
+package com.globallogic.testing.e2e.stepdefs.globallogicweb.helper;
 
-import com.globallogic.testing.e2d.TestContext;
-import com.globallogic.testing.e2d.stepdefs.CommonUtility;
+import com.globallogic.testing.e2e.TestContext;
+import com.globallogic.testing.e2e.stepdefs.CommonUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class FindByElementsGlobalLogicHomeRomaniaEnglishPage {
+public class FindByElementsRomaniaEnglishHomePage {
 
     private final CommonUtility utility;
     private final TestContext testContext;
 
-    public FindByElementsGlobalLogicHomeRomaniaEnglishPage(TestContext testContext) {
+    public FindByElementsRomaniaEnglishHomePage(TestContext testContext) {
         this.testContext = testContext;
         utility = new CommonUtility(testContext);
     }

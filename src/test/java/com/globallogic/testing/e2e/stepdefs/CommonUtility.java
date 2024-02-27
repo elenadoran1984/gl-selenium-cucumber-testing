@@ -1,6 +1,6 @@
-package com.globallogic.testing.e2d.stepdefs;
+package com.globallogic.testing.e2e.stepdefs;
 
-import com.globallogic.testing.e2d.TestContext;
+import com.globallogic.testing.e2e.TestContext;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 

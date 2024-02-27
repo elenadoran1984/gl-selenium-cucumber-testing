@@ -1,6 +1,6 @@
-package com.globallogic.testing.e2d.stepdefs;
+package com.globallogic.testing.e2e.stepdefs;
 
-import com.globallogic.testing.e2d.SeleniumUtils;
+import com.globallogic.testing.e2e.Utils;
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
 import io.cucumber.cucumberexpressions.ParameterType;
@@ -25,8 +25,8 @@ public class TypeRegistryConfiguration implements TypeRegistryConfigurer {
         typeRegistry.defineParameterType(new ParameterType<>(
                 "browser",
                 "\"chrome\"|\"firefox\"|\"edge\"",
-                SeleniumUtils.Browser.class,
-                (String s) -> SeleniumUtils.Browser.valueOf(s.replaceAll("\"","").toUpperCase())
+                Utils.Browser.class,
+                (String s) -> Utils.Browser.valueOf(s.replaceAll("\"","").toUpperCase())
         ));
 
         typeRegistry.defineParameterType(new ParameterType<>(

@@ -1,4 +1,4 @@
-package com.globallogic.testing.e2d;
+package com.globallogic.testing.e2e;
 
 import cucumber.api.Scenario;
 import org.apache.commons.io.FileUtils;
@@ -24,13 +24,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-public class SeleniumUtils {
+public class Utils {
 
     public static final String SELENIUM_URL;
     public static final String DEFAULT_SELENIUM_GRID_URL = "selenium-hub-dev.run-caas.rd.corpintra.net/wd/hub";
     public static final String ERROR_MESSAGE_INVALID_SELENIUM_CREDENTIALS = "Selenium Credentials have to be specified with" +
             " 'selenium_credentials_username' and 'selenium_credentials_password'";
-    private static final Logger LOGGER = LoggerFactory.getLogger(SeleniumUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
     private static final String ERROR_MESSAGE_DECRYPTION_PROPRTY_MISSING = "Decryption system property missing!";
     public static List<String> ACTIVE_BROWSERS = Arrays.asList("chrome", "firefox", "edge");
 
@@ -82,7 +82,7 @@ public class SeleniumUtils {
     public static void createScreenshotIfFailed(WebDriver driver, Scenario scenario) {
         if (scenario.isFailed() && driver instanceof TakesScreenshot) {
             String browserName = getBrowserName(driver);
-            SeleniumUtils.createScreenshot((TakesScreenshot) driver, scenario, browserName);
+            Utils.createScreenshot((TakesScreenshot) driver, scenario, browserName);
         }
     }
 
@@ -138,7 +138,7 @@ public class SeleniumUtils {
             throw new IllegalStateException(ERROR_MESSAGE_DECRYPTION_PROPRTY_MISSING);
         }
 
-        try (InputStream input = SeleniumUtils.class.getClassLoader().getResourceAsStream("encrypted.properties")) {
+        try (InputStream input = Utils.class.getClassLoader().getResourceAsStream("encrypted.properties")) {
 
             if (input == null) {
                 System.out.println("Sorry, unable to find encrypted.properties");

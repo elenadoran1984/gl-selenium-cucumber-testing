@@ -1,4 +1,4 @@
-package com.globallogic.testing.e2d;
+package com.globallogic.testing.e2e;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

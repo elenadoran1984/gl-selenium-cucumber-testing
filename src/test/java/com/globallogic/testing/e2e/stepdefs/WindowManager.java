@@ -1,4 +1,4 @@
-package com.globallogic.testing.e2d.stepdefs;
+package com.globallogic.testing.e2e.stepdefs;
 
 import org.openqa.selenium.WebDriver;
 

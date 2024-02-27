@@ -1,6 +1,6 @@
-package com.globallogic.testing.e2d.stepdefs.globallogicweb.helper;
+package com.globallogic.testing.e2e.stepdefs.globallogicweb.helper;
 
-public class DataUtilityGlobalLogic {
+public class DataUtility {
 
     public static final String HOME_LINK = "https://www.globallogic.com/";
     public static final String ROMANIA_ENGLISH_LINK = "https://www.globallogic.com/ro/";

@@ -1,4 +1,4 @@
-package com.globallogic.testing.e2d;
+package com.globallogic.testing.e2e;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,7 +14,7 @@ public class TestContext {
 
     private String webDriverOption;
 
-    private SeleniumUtils.WebDriverMode webDriverMode;
+    private Utils.WebDriverMode webDriverMode;
 
     private WebDriverWait wait;
 
@@ -40,11 +40,11 @@ public class TestContext {
         this.webDriverOption = webDriverOption;
     }
 
-    public SeleniumUtils.WebDriverMode getWebDriverMode() {
+    public Utils.WebDriverMode getWebDriverMode() {
         return webDriverMode;
     }
 
-    public void setWebDriverMode(SeleniumUtils.WebDriverMode webDriverMode) {
+    public void setWebDriverMode(Utils.WebDriverMode webDriverMode) {
         this.webDriverMode = webDriverMode;
     }
 
