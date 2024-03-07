@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "junit:target/surefire-reports/com.globallogic.testing.e2e.CucumberSeleniumLocalTest.xml", "html:target/surefire-reports/CucumberSeleniumLocalTest", "json:target/surefire-reports/XrayCucumberTest.json"},
         features = {"src/test/features"},
         extraGlue = {"com.globallogic.testing.extraglue.localwebdriver"},
-        tags = "not @skip and not @Negative and  @Smoke and not @End2End"
+        tags = "not @skip and not @Negative and  @Smoke1 and not @End2End"
 )
 
 public class CucumberSeleniumLocalTest {

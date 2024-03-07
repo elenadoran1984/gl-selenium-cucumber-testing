@@ -14,14 +14,21 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeTrue;
+import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
 public class Stepdefs {
 
@@ -75,38 +82,44 @@ public class Stepdefs {
     }
 
     @When("I select Services option from primary menu")
-    public void iSelectServicesOptionFromPrimaryMenu() {
+    public void iSelectServicesOptionFromPrimaryMenu(){
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        getWindowManager().switchToNewTab();
         element.servicesOptionPrimaryMenuClick();
     }
 
     @When("I select Work option from primary menu")
     public void iSelectWorkOptionFromPrimaryMenu() {
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        getWindowManager().switchToNewTab();
         element.workOptionPrimaryMenuClick();
     }
 
     @When("I select Insights option from primary menu")
     public void iSelectInsightsOptionFromPrimaryMenu() {
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        getWindowManager().switchToNewTab();
         element.insightOptionPrimaryMenuClick();
     }
 
     @When("I select Careers option from primary menu")
     public void iSelectCareersOptionFromPrimaryMenu() {
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        getWindowManager().switchToNewTab();
         element.careersOptionPrimaryMenuClick();
     }
 
     @When("I select About option from primary menu")
     public void iSelectAboutOptionFromPrimaryMenu() {
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        getWindowManager().switchToNewTab();
         element.aboutOptionPrimaryMenuClick();
     }
 
     @When("I select Contact option from primary menu")
     public void iSelectContactOptionFromPrimaryMenu() {
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        getWindowManager().switchToNewTab();
         element.contactOptionPrimaryMenuClick();
     }
 
@@ -117,7 +130,7 @@ public class Stepdefs {
     @And("I scroll to footer menu from GlobalLogic Home Romania English page")
     public void iScrollToFooterMenuFromGlobalLogicHomeRomaniaEnglishPage() throws InterruptedException {
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
-        getWindowManager().switchToNewTab();
+        //getWindowManager().switchToNewTab();
         element.footerMenuScroll();
         //Thread.sleep(10000);
     }
@@ -231,6 +244,7 @@ public class Stepdefs {
 
     @And("GlobalLogic Home Romania English page is opened")
     public void GlobalLogicHomeRomaniaEnglishPageIsOpened() {
+        getWindowManager().switchToNewTab();
         String pageURL = getPageURL();
         assertEquals(DataUtility.ROMANIA_ENGLISH_LINK, pageURL);
     }
@@ -283,4 +297,30 @@ public class Stepdefs {
         String titlePage = getTitlePage();
         assertEquals(DataUtility.CONTACT_TITLE, titlePage);
     }
+
+    @Then("GlobalLogic Social Pages are displayed")
+    public void GlobalLogicSocialPagesAreDisplayed() {
+        FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(10));
+
+        List<WebElement> allSocialMedia = utility.findElements(with(
+                By.tagName("a")
+                ).toRightOf(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element.footerSecond)))
+                ).below(wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(element.craft)))
+                ).above(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element.subscribe)))));
+        System.out.println("Social Media are: " + allSocialMedia.size());
+
+        List<String> supplierNames = Arrays.asList(DataUtility.LINKEDIN_HREF, DataUtility.TWITTER_HREF,
+                DataUtility.FACEBOOK_HREF,DataUtility.YOUTUBE_HREF, DataUtility.INSTAGRAM_HREF);
+
+        IntStream.range(0, allSocialMedia.size())
+                .forEach(index -> {
+                    String socialMedia = allSocialMedia.get(index).getAttribute("href");
+                    assertEquals(supplierNames.get(index), socialMedia);
+                    System.out.println("Social media is:" + socialMedia);
+
+                } );
+        }
+
+
 }

@@ -1,9 +1,12 @@
 package com.globallogic.testing.e2e.stepdefs;
 
 import com.globallogic.testing.e2e.TestContext;
+import com.globallogic.testing.e2e.stepdefs.globallogicweb.helper.FindByElementsRomaniaEnglishHomePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class CommonUtility {
@@ -31,6 +34,10 @@ public class CommonUtility {
         return testContext.getDriver().findElements(by);
     }
 
+    public List<WebElement> findElements(By by) {
+        return testContext.getDriver().findElements(by);
+    }
+
     public WebElement waitElementBy(By by) {
         if (testContext.getWait().isEmpty())
             throw new IllegalStateException("Test context is missing the wait instance!");
@@ -45,6 +52,13 @@ public class CommonUtility {
 
         return element;
     }
+
+//    public WebElement socialPagesBy(By by){
+//        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(10));
+//        WebElement socialPages = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+//
+//        return socialPages;
+//    }
 
     public boolean isElementEnabled(String elementId) {
         WebElement webElement = findElementBy(By.id(elementId));

@@ -44,6 +44,12 @@ public class FindByElementsRomaniaEnglishHomePage {
     private String complianceDisclosuresFooterMenu = "#main > footer > section.footer-second > div > div > div.col-md-5.col-8.order-3.oorder-sm-2.order-md-2.order-lg-2 > div > div #menu-footer-menu-two> li:nth-child(3) > a";
     private String contactFooterMenu =               "#main > footer > section.footer-second > div > div > div.col-md-5.col-8.order-3.oorder-sm-2.order-md-2.order-lg-2 > div > div #menu-footer-menu-two> li:nth-child(4) > a";
 
+    public String footerSecond = "#main > footer > section.footer-second > div > div > div.col-md-5.col-8.order-3.oorder-sm-2.order-md-2.order-lg-2";
+
+    public String craft = "our-craft";
+
+    public String subscribe = "#main > footer > section.footer-second > div > div > div.col-md-5.order-1.order-lg-3.order-sm-3.order-md-3.footer-social > div.footer-subscribe";
+
     public void servicesOptionPrimaryMenuClick(){
         servicesOptionPrimaryMenu = utility.findElementBy(By.cssSelector(servicesPrimaryMenu));
         servicesOptionPrimaryMenu.click();

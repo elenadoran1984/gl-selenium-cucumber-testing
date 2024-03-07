@@ -22,4 +22,11 @@ public class DataUtility {
     public static final String PRIVACY_TITLE = "Privacy | GlobalLogic Romania";
     public static final String COMPLIANCEDISCLOSURES_TITLE = "Compliance and Disclosures | GlobalLogic Romania";
     public static final String CONTACT_TITLE = "Contact | GlobalLogic Romania";
+
+    public static final String LINKEDIN_HREF = "https://www.linkedin.com/company/globallogicromania/";
+    public static final String TWITTER_HREF= "https://twitter.com/globallogic";
+    public static final String FACEBOOK_HREF = "https://www.facebook.com/people/GlobalLogic-Romania/100088870211446/";
+    public static final String YOUTUBE_HREF = "https://www.youtube.com/user/globallogic";
+    public static final String INSTAGRAM_HREF= "https://www.instagram.com/globallogic_usa/";
+
 }

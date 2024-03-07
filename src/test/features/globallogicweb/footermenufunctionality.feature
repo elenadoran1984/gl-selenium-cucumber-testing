@@ -120,8 +120,8 @@ Feature: GlobalLogic Web
       Examples:
         | browser |
         | chrome  |
-          #| firefox |
-          #| edge    |
+        #| firefox |
+        #| edge    |
 
     #Scenario: 8
     @Smoke
@@ -137,5 +137,19 @@ Feature: GlobalLogic Web
       Examples:
         | browser |
         | chrome  |
-          #| firefox |
-          #| edge    |
+        #| firefox |
+        #| edge    |
+
+    #Scenario: 9
+    @Smoke1
+    Scenario Outline: Validate Social Pages
+      Given I open GlobalLogic Home page on "<browser>"
+      And I change to Romania English from country options
+      And GlobalLogic Home Romania English page is opened
+      When I scroll to footer menu from GlobalLogic Home Romania English page
+      Then GlobalLogic Social Pages are displayed
+      Examples:
+        | browser |
+        | chrome  |
+        #| firefox |
+        #| edge    |
