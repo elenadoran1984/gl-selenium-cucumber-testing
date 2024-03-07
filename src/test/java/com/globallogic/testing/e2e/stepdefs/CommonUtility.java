@@ -1,7 +1,6 @@
 package com.globallogic.testing.e2e.stepdefs;
 
 import com.globallogic.testing.e2e.TestContext;
-import com.globallogic.testing.e2e.stepdefs.globallogicweb.helper.FindByElementsRomaniaEnglishHomePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -59,6 +58,14 @@ public class CommonUtility {
 //
 //        return socialPages;
 //    }
+
+    public Object clickArgumentsBy(By by){
+        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
+        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
+        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(by));
+
+        return js.executeScript("arguments[0].click();", element);
+    }
 
     public boolean isElementEnabled(String elementId) {
         WebElement webElement = findElementBy(By.id(elementId));

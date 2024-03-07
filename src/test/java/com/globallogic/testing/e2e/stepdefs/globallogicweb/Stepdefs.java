@@ -82,7 +82,7 @@ public class Stepdefs {
     }
 
     @When("I select Services option from primary menu")
-    public void iSelectServicesOptionFromPrimaryMenu(){
+    public void iSelectServicesOptionFromPrimaryMenu() {
         FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
         getWindowManager().switchToNewTab();
         element.servicesOptionPrimaryMenuClick();
@@ -123,7 +123,7 @@ public class Stepdefs {
         element.contactOptionPrimaryMenuClick();
     }
 
-    public WindowManager getWindowManager(){
+    public WindowManager getWindowManager() {
         return new WindowManager(testContext.getDriver());
     }
 
@@ -305,13 +305,13 @@ public class Stepdefs {
 
         List<WebElement> allSocialMedia = utility.findElements(with(
                 By.tagName("a")
-                ).toRightOf(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element.footerSecond)))
-                ).below(wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(element.craft)))
-                ).above(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element.subscribe)))));
+        ).toRightOf(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element.footerSecond)))
+        ).below(wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(element.craft)))
+        ).above(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element.subscribe)))));
         System.out.println("Social Media are: " + allSocialMedia.size());
 
         List<String> supplierNames = Arrays.asList(DataUtility.LINKEDIN_HREF, DataUtility.TWITTER_HREF,
-                DataUtility.FACEBOOK_HREF,DataUtility.YOUTUBE_HREF, DataUtility.INSTAGRAM_HREF);
+                DataUtility.FACEBOOK_HREF, DataUtility.YOUTUBE_HREF, DataUtility.INSTAGRAM_HREF);
 
         IntStream.range(0, allSocialMedia.size())
                 .forEach(index -> {
@@ -319,8 +319,109 @@ public class Stepdefs {
                     assertEquals(supplierNames.get(index), socialMedia);
                     System.out.println("Social media is:" + socialMedia);
 
-                } );
-        }
+                });
+    }
 
+    @When("I select Linkedin from footer menu")
+    public void ISelectLinkedinFromFooterMenu() {
+        FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        element.linkedinFooterMenuClick();
+    }
+
+    @When("I select Twitter from footer menu")
+    public void ISelectTwitterFromFooterMenu() {
+        FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        element.twitterFooterMenuClick();
+    }
+
+    @When("I select Facebook from footer menu")
+    public void ISelectFacebookFromFooterMenu() {
+        FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        element.facebookFooterMenuClick();
+    }
+
+    @When("I select Youtube from footer menu")
+    public void ISelectYoutubeFromFooterMenu() {
+        FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        element.youtubeFooterMenuClick();
+    }
+
+    @When("I select Instagram from footer menu")
+    public void ISelectInstagramFromFooterMenu() {
+        FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        element.instagramFooterMenuClick();
+    }
+
+    @Then("Linkedin page is opened")
+    public void LinkedinPageIsOpened() {
+        getWindowManager().switchToNewTab();
+        String pageURL = getPageURL();
+        assertEquals(DataUtility.LINKEDIN_LINK, pageURL);
+    }
+
+    @Then("Twitter page is opened")
+    public void TwitterPageIsOpened() {
+        getWindowManager().switchToNewTab();
+        String pageURL = getPageURL();
+        assertEquals(DataUtility.TWITTER_LINK, pageURL);
+    }
+
+    @Then("Facebook page is opened")
+    public void FacebookPageIsOpened() {
+        getWindowManager().switchToNewTab();
+        String pageURL = getPageURL();
+        assertEquals(DataUtility.FACEBOOK_LINK, pageURL);
+    }
+
+    @Then("Youtube page is opened")
+    public void YoutubePageIsOpened() {
+        getWindowManager().switchToNewTab();
+        FindByElementsRomaniaEnglishHomePage element = new FindByElementsRomaniaEnglishHomePage(testContext);
+        element.youtubeCookiesAcceptClick();
+        String pageURL = getPageURL();
+        assertEquals(DataUtility.YOUTUBE_LINK, pageURL);
+    }
+
+    @Then("Instagram page is opened")
+    public void InstagramPageIsOpened() {
+        getWindowManager().switchToNewTab();
+        String pageURL = getPageURL();
+        assertEquals(DataUtility.INSTAGRAM_LINK, pageURL);
+    }
+
+    @And("Linkedin Title page is displayed")
+    public void LinkedinTitlePageIsDisplayed() {
+        String titlePage = getTitlePage();
+        System.out.println(titlePage);
+        assertEquals(DataUtility.LINKEDIN_TITLE, titlePage);
+    }
+
+    @And("Twitter Title page is displayed")
+    public void TwitterTitlePageIsDisplayed() {
+        String titlePage = getTitlePage();
+        System.out.println(titlePage);
+        assertEquals(DataUtility.TWITTER_TITLE, titlePage);
+    }
+
+    @And("Facebook Title page is displayed")
+    public void FacebookTitlePageIsDisplayed() {
+        String titlePage = getTitlePage();
+        System.out.println(titlePage);
+        assertEquals(DataUtility.FACEBOOK_TITLE, titlePage);
+    }
+
+    @And("Youtube Title page is displayed")
+    public void YoutubeTitlePageIsDisplayed() {
+        String titlePage = getTitlePage();
+        System.out.println(titlePage);
+        assertEquals(DataUtility.YOUTUBE_TITLE, titlePage);
+    }
+
+    @And("Instagram Title page is displayed")
+    public void InstagramTitlePageIsDisplayed() {
+        String titlePage = getTitlePage();
+        System.out.println(titlePage);
+        assertEquals(DataUtility.INSTAGRAM_TITLE, titlePage);
+    }
 
 }

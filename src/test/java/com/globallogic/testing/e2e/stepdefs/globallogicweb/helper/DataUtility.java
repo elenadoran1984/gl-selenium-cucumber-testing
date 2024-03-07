@@ -29,4 +29,16 @@ public class DataUtility {
     public static final String YOUTUBE_HREF = "https://www.youtube.com/user/globallogic";
     public static final String INSTAGRAM_HREF= "https://www.instagram.com/globallogic_usa/";
 
+    public static final String LINKEDIN_LINK = "https://www.linkedin.com/company/globallogicromania/";
+    public static final String TWITTER_LINK= "https://twitter.com/globallogic";
+    public static final String FACEBOOK_LINK = "https://www.facebook.com/people/GlobalLogic-Romania/100088870211446/";
+    public static final String YOUTUBE_LINK = "https://www.youtube.com/user/globallogic";
+    public static final String INSTAGRAM_LINK= "https://www.instagram.com/globallogic_usa/";
+
+    public static final String LINKEDIN_TITLE= "GlobalLogic Romania | LinkedIn";
+    public static final String TWITTER_TITLE= "Profile / X";
+    public static final String FACEBOOK_TITLE = "Facebook";
+    public static final String YOUTUBE_TITLE= "GlobalLogic - YouTube";
+    public static final String INSTAGRAM_TITLE= "Page not found • Instagram";
+
 }

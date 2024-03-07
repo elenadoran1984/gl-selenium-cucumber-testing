@@ -141,13 +141,93 @@ Feature: GlobalLogic Web
         #| edge    |
 
     #Scenario: 9
-    @Smoke1
+    @Smoke
     Scenario Outline: Validate Social Pages
       Given I open GlobalLogic Home page on "<browser>"
       And I change to Romania English from country options
       And GlobalLogic Home Romania English page is opened
       When I scroll to footer menu from GlobalLogic Home Romania English page
       Then GlobalLogic Social Pages are displayed
+      Examples:
+        | browser |
+        | chrome  |
+        #| firefox |
+        #| edge    |
+
+    #Scenario: 10
+    @Smoke
+    Scenario Outline: Select Linkedin Social Page
+      Given I open GlobalLogic Home page on "<browser>"
+      And I change to Romania English from country options
+      And GlobalLogic Home Romania English page is opened
+      And I scroll to footer menu from GlobalLogic Home Romania English page
+      When I select Linkedin from footer menu
+      Then Linkedin page is opened
+      And Linkedin Title page is displayed
+      Examples:
+        | browser |
+        | chrome  |
+        #| firefox |
+        #| edge    |
+
+    #Scenario: 11
+    @Smoke
+    Scenario Outline: Select Twitter Social Page
+      Given I open GlobalLogic Home page on "<browser>"
+      And I change to Romania English from country options
+      And GlobalLogic Home Romania English page is opened
+      And I scroll to footer menu from GlobalLogic Home Romania English page
+      When I select Twitter from footer menu
+      Then Twitter page is opened
+      And Twitter Title page is displayed
+      Examples:
+        | browser |
+        | chrome  |
+        #| firefox |
+        #| edge    |
+
+    #Scenario: 12
+    @Smoke
+    Scenario Outline: Select Facebook Social Page
+      Given I open GlobalLogic Home page on "<browser>"
+      And I change to Romania English from country options
+      And GlobalLogic Home Romania English page is opened
+      And I scroll to footer menu from GlobalLogic Home Romania English page
+      When I select Facebook from footer menu
+      Then Facebook page is opened
+      And Facebook Title page is displayed
+      Examples:
+        | browser |
+        | chrome  |
+        #| firefox |
+        #| edge    |
+
+    #Scenario: 13
+    @Smoke
+    Scenario Outline: Select Youtube Social Page
+      Given I open GlobalLogic Home page on "<browser>"
+      And I change to Romania English from country options
+      And GlobalLogic Home Romania English page is opened
+      And I scroll to footer menu from GlobalLogic Home Romania English page
+      When I select Youtube from footer menu
+      Then Youtube page is opened
+      And Youtube Title page is displayed
+      Examples:
+        | browser |
+        | chrome  |
+        #| firefox |
+        #| edge    |
+
+    #Scenario: 14
+    @Smoke
+    Scenario Outline: Select Instagram Social Page
+      Given I open GlobalLogic Home page on "<browser>"
+      And I change to Romania English from country options
+      And GlobalLogic Home Romania English page is opened
+      And I scroll to footer menu from GlobalLogic Home Romania English page
+      When I select Instagram from footer menu
+      Then Instagram page is opened
+      And Instagram Title page is displayed
       Examples:
         | browser |
         | chrome  |

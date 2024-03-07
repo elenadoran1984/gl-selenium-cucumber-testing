@@ -14,6 +14,7 @@ public class FindByElementsRomaniaEnglishHomePage {
 
     private final CommonUtility utility;
     private final TestContext testContext;
+    private Object element;
 
     public FindByElementsRomaniaEnglishHomePage(TestContext testContext) {
         this.testContext = testContext;
@@ -28,12 +29,16 @@ public class FindByElementsRomaniaEnglishHomePage {
     private WebElement contactOptionPrimaryMenu;
     private WebElement footerMenuBottom;
 
+    private WebElement acceptCookie;
+
     private String servicesPrimaryMenu = "#primary-menu > li:nth-child(1) > a";
     private String workPrimaryMenu = "#primary-menu > li:nth-child(2) > a";
     private String insightsPrimaryMenu = "#primary-menu > li:nth-child(3) > a";
     private String careersPrimaryMenu = "#primary-menu > li:nth-child(4) > a";
     private String aboutPrimaryMenu = "#primary-menu > li:nth-child(5) > a";
     private String contactPrimaryMenu = "#primary-menu > li:nth-child(6) > a";
+
+    private String footerMenu = "#main > footer > section.footer-second";
 
     private String servicesFooterMenu = "#main > footer > section.footer-second > div > div > div.col-md-2.col-4.order-2.order-sm-1.order-md-1.order-lg-1 > div > div #menu-footer-menu > li:nth-child(1) > a";
     private String workFooterMenu= "#main > footer > section.footer-second > div > div > div.col-md-2.col-4.order-2.order-sm-1.order-md-1.order-lg-1 > div > div #menu-footer-menu > li:nth-child(2) > a";
@@ -45,10 +50,21 @@ public class FindByElementsRomaniaEnglishHomePage {
     private String contactFooterMenu =               "#main > footer > section.footer-second > div > div > div.col-md-5.col-8.order-3.oorder-sm-2.order-md-2.order-lg-2 > div > div #menu-footer-menu-two> li:nth-child(4) > a";
 
     public String footerSecond = "#main > footer > section.footer-second > div > div > div.col-md-5.col-8.order-3.oorder-sm-2.order-md-2.order-lg-2";
-
     public String craft = "our-craft";
-
     public String subscribe = "#main > footer > section.footer-second > div > div > div.col-md-5.order-1.order-lg-3.order-sm-3.order-md-3.footer-social > div.footer-subscribe";
+
+    public String linkedinSocial = "#main > footer > section.footer-second > div > div > div.col-md-5.order-1.order-lg-3.order-sm-3.order-md-3.footer-social > div.social-icons > a:nth-child(1)";
+    public String twitterSocial = "#main > footer > section.footer-second > div > div > div.col-md-5.order-1.order-lg-3.order-sm-3.order-md-3.footer-social > div.social-icons > a:nth-child(2)";
+    public String facebookSocial = "#main > footer > section.footer-second > div > div > div.col-md-5.order-1.order-lg-3.order-sm-3.order-md-3.footer-social > div.social-icons > a:nth-child(3)";
+    public String youtubeSocial = "#main > footer > section.footer-second > div > div > div.col-md-5.order-1.order-lg-3.order-sm-3.order-md-3.footer-social > div.social-icons > a:nth-child(4)";
+    public String instagramSocial = "#main > footer > section.footer-second > div > div > div.col-md-5.order-1.order-lg-3.order-sm-3.order-md-3.footer-social > div.social-icons > a:nth-child(5)";
+
+    public String youtubeCookiesAccept = "#yDmH0d > c-wiz > div > div > div > div.v2Yske > div.CqMh6b > div.qqtRac > div.KZ9vpc > form:nth-child(3) > div > div > button";
+
+    public void youtubeCookiesAcceptClick(){
+        acceptCookie = utility.findElementBy(By.cssSelector(youtubeCookiesAccept));
+        acceptCookie.click();
+    }
 
     public void servicesOptionPrimaryMenuClick(){
         servicesOptionPrimaryMenu = utility.findElementBy(By.cssSelector(servicesPrimaryMenu));
@@ -81,64 +97,66 @@ public class FindByElementsRomaniaEnglishHomePage {
     }
 
     public void footerMenuScroll() {
-        footerMenuBottom = utility.findElementBy(By.cssSelector("#main > footer > section.footer-second"));
+        footerMenuBottom = utility.findElementBy(By.cssSelector(footerMenu));
         String script = "arguments[0].scrollIntoView();";
         ((JavascriptExecutor) testContext.getDriver()).executeScript(script, footerMenuBottom);
     }
 
     public void servicesOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(servicesFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+//        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
+//        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
+//        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(servicesFooterMenu)));
+//        js.executeScript("arguments[0].click();", element);
+
+        element = utility.clickArgumentsBy(By.cssSelector(servicesFooterMenu));
     }
 
     public void workOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(workFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+        element = utility.clickArgumentsBy(By.cssSelector(workFooterMenu));
     }
 
     public void insightOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(insightsFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+        element = utility.clickArgumentsBy(By.cssSelector(insightsFooterMenu));
     }
 
     public void careersOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(careersFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+        element = utility.clickArgumentsBy(By.cssSelector(careersFooterMenu));
     }
 
     public void aboutOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(aboutFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+        element = utility.clickArgumentsBy(By.cssSelector(aboutFooterMenu));
     }
 
     public void privacyOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(privacyFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+        element = utility.clickArgumentsBy(By.cssSelector(privacyFooterMenu));
     }
 
     public void complianceDisclosuresOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(complianceDisclosuresFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+        element = utility.clickArgumentsBy(By.cssSelector(complianceDisclosuresFooterMenu));
     }
 
     public void contactOptionFooterMenuClick(){
-        WebDriverWait wait = new WebDriverWait(testContext.getDriver(), Duration.ofSeconds(5));
-        JavascriptExecutor js = (JavascriptExecutor)testContext.getDriver();
-        WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(contactFooterMenu)));
-        js.executeScript("arguments[0].click();", element);
+        element = utility.clickArgumentsBy(By.cssSelector(contactFooterMenu));
     }
+
+    public void linkedinFooterMenuClick() {
+        element = utility.clickArgumentsBy(By.cssSelector(linkedinSocial));
+    }
+
+    public void twitterFooterMenuClick() {
+        element = utility.clickArgumentsBy(By.cssSelector(twitterSocial));
+    }
+
+    public void facebookFooterMenuClick() {
+        element = utility.clickArgumentsBy(By.cssSelector(facebookSocial));
+    }
+
+    public void youtubeFooterMenuClick() {
+        element = utility.clickArgumentsBy(By.cssSelector(youtubeSocial));
+    }
+
+    public void instagramFooterMenuClick() {
+        element = utility.clickArgumentsBy(By.cssSelector(instagramSocial));
+    }
+
 }
